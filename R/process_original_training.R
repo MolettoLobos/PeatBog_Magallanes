@@ -29,4 +29,4 @@ shp = readOGR(dsn)
 summary_allcover = summary_lc(shp)
 # export data -------------------------------------------------------------
 dsn_out = paste0(path,'/','summary_covers.csv')
-write.csv(summary_allcover,dsn_out)
+write.csv(summary_allcover,dsn_out,row.names=F)
