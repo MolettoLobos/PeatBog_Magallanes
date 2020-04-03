@@ -22,11 +22,11 @@ summary_lc = function(shp) {
   
   return(DFEND)
 }
-path = 'C:/Users/italo/Google Drive/PeatBog_Magallanes'
-dsn = paste0(path,'/','lc_data.shp')
+path = 'C:/Users/italo/Google Drive/PeatBog_Magallanes/feature_selectiondata'
+dsn = paste0(path,'/','training_data_23_covers_spectra.shp')
 shp = readOGR(dsn)
 # get statistics per cover ------------------------------------------------
 summary_allcover = summary_lc(shp)
 # export data -------------------------------------------------------------
-dsn_out = paste0(path,'/','summary_covers.csv')
+dsn_out = paste0(path,'/','summary_covers_v2.csv')
 write.csv(summary_allcover,dsn_out,row.names=F)
