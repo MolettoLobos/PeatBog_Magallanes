@@ -1,12 +1,14 @@
 # Import libraries, functions and data -------------------------------------------------------------
 library(caret)
 library(rgdal)
-
-path = 'C:/Users/italo/Google Drive/PeatBog_Magallanes'
-dsn = paste0(path,'/','lc_data_spectra.shp')
+library(doParallel)
+path = 'C:/Users/italo/Google Drive/PeatBog_Magallanes/feature_selectiondata'
+dsn = paste0(path,'/','training_data_23_covers_spectra.shp')
 shp = readOGR(dsn)
 # get data for processing ------------------------------------------------
-
+numCores <- detectCores()-1
+numCores
+registerDoParallel(numCores)
 data = shp@data
 
 correlation=cor(data, use = "complete.obs")

@@ -17,6 +17,7 @@ spectra_list = list()
 spectra_list_stacked = list()
 spectra_list_statistics = list()
 spectra_list_mean = list()
+id_landcover = list()
 for (i in 1:x) {
   nameobj=strsplit(cover_data[i],'.shp')[[1]]
   nameobj_stack = paste0(nameobj,'_stack')
@@ -29,6 +30,7 @@ for (i in 1:x) {
   norm1 <- dnorm(seq(-20,20,length=5000),mean=0,sd=1) 
   norm2 <- dnorm(seq(-20,20,length=5000),mean=0.2,sd=2) 
   assign(nameobj,readOGR(cover_data_fnames[i]))
+  id_landcover = list.append(id_landcover,get(nameobj)$landcover[1])
   assign(nameobj,get(nameobj)@data %>% select(B1,B2,B3,B4,B5,B6,B7,B8,B8A,B9,B11,B12))
   assign(nameobj_stack,stack(get(nameobj))$values)
   assign(nameobj_statistics , get(nameobj) %>% 
@@ -37,6 +39,7 @@ for (i in 1:x) {
            summarise_all(funs(mean),na.rm=T))$value)
   
 }
+data_dict = data.frame(id=t(data.frame(id=id_landcover)),cover=t(data.frame(id=spectra_list)))
 S2Bands = c(443,490,560,665,705,740,783,842,865,945,1610,2190)
 
 
