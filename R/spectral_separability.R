@@ -27,8 +27,6 @@ for (i in 1:x) {
   spectra_list_stacked = list.append(spectra_list_stacked,nameobj_stack)
   spectra_list_statistics = list.append(spectra_list_statistics,nameobj_mean)
   spectra_list_mean = list.append(spectra_list_mean,nameobj_mean)
-  norm1 <- dnorm(seq(-20,20,length=5000),mean=0,sd=1) 
-  norm2 <- dnorm(seq(-20,20,length=5000),mean=0.2,sd=2) 
   assign(nameobj,readOGR(cover_data_fnames[i]))
   id_landcover = list.append(id_landcover,get(nameobj)$landcover[1])
   assign(nameobj,get(nameobj)@data %>% select(B1,B2,B3,B4,B5,B6,B7,B8,B8A,B9,B11,B12))
