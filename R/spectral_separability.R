@@ -8,11 +8,12 @@ library(corrplot)
 library(ggplot2)
 library(matlab)
 # get data for processing ------------------------------------------------
-path = 'C:/Users/italo/Google Drive/PeatBog_Magallanes'
-dsn = paste0(path,'/','lc_data.shp')
-cover_data_fnames=list.files(path=path,pattern='.shp',full.names=TRUE)
-cover_data=list.files(path=path,pattern='.shp',full.names=FALSE)
-x=length(cover_data)
+path = paste0(getwd(),'/tmp/data')
+dsn = paste0(path,'/','Coberturas_AM_points_250m_calibration_extract_allseasons_fixed.shp')
+#cover_data_fnames=list.files(path=path,pattern='.shp',full.names=TRUE)
+#cover_data=list.files(path=path,pattern='.shp',full.names=FALSE)
+#x=length(cover_data)
+x=1
 spectra_list = list()
 spectra_list_stacked = list()
 spectra_list_statistics = list()
