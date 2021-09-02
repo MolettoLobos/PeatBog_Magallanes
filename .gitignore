@@ -2,3 +2,12 @@
 .Rhistory
 .RData
 .Ruserdata
+<<<<<<< HEAD
+# Temporal files
+tmp
+data/
+=======
+
+# Temporal files
+tmp
+data/
